@@ -1,5 +1,5 @@
 //Permite trabajar con la base de datos
-const mongoose= required('mongoose')
+const mongoose= require('mongoose');
 
 const Schema= mongoose.Schema
 
@@ -8,7 +8,7 @@ const TodoSchema= new Schema({
     title:{
         type:String,
         required:true,
-        trim:true//Permite eliminar espacios cuando se agrega información
+        trim:true
     },
     completed:{
         type:Boolean,
@@ -16,7 +16,7 @@ const TodoSchema= new Schema({
     },
     visible:{
         type:Boolean,
-        default:false,
+        default:true,
     }
 })
 

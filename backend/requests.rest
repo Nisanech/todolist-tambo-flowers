@@ -1,0 +1,23 @@
+GET http://localhost:5000/api/todos
+###
+POST http://localhost:5000/api/todo/new
+Content-Type: application/json
+
+{
+    "title":"New data"
+}
+
+### 
+PUT http://localhost:5000/api/todo/editTodo/63cac03a8e3f24747eb74a1f
+Content-Type: application/json
+
+{
+    "title":"Nueva tarea"
+}
+
+###
+GET http://localhost:5000/api/todo/toggleStatus/63cac03a8e3f24747eb74a1f
+
+
+### 
+GET http://localhost:5000/api/todo/toggleDelete/63cac03a8e3f24747eb74a1f
