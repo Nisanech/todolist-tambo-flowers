@@ -3,14 +3,17 @@ import "./Addlist.css"
 
 const Addlist = () => {
 return (
-    <>
+    <>  {/* input to add tasks */}
     <section>
         <form>
             <div className='contariner'>
 
                 <div className='inputcontainer'>
-                    <label for="uname">Añadir tarea</label>
-                    
+
+                    <div className='textadd'>
+
+                        <label for="uname" >Añadir tarea</label>
+                    </div>
                     <div className='addlist'>
                         
                         <input type="text" id="uname" name="name"
