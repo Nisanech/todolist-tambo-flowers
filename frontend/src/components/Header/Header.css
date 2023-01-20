@@ -23,7 +23,7 @@ header img{
 @media (min-width:766px){
    
 header img{
-    height: 10rem;
+    height: 8rem;
 }
 }
 
@@ -32,7 +32,7 @@ header img{
 @media (min-width:1024px){
    
 header img{
-    height: 12rem;
+    height: 10rem;
 }
 
 }
