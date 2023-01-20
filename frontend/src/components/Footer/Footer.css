@@ -3,30 +3,50 @@ footer{
 }
 footer ul{
     display: flex;
-    padding: 1rem;
+    padding: 1.8rem;
     justify-content: center;
 }
 footer ul li{
     list-style-type: none;
     margin: 0rem 1.3rem;
 }
-footer img{
-    height:50rem;
+footer ul li img{
+    height:15rem;
 }
 
 @media (max-width:481px){
-    footer img{ 
-        height:2.3rem;
+    footer ul{
+        padding: 1rem;
     }
     footer ul li{
-        margin: 0.1rem 0.1rem;
+        list-style-type: none;
+        margin: 0rem 0.1rem;
+    }
+    footer ul li img{
+        height:2rem;
     }
 }
-@media (min-width:768px){
-    footer img{ 
-        height:4rem;
+@media (min-width:766px){
+    footer ul{
+        padding: 1rem;
     }
     footer ul li{
-        margin: 0.1rem 0.1rem;
+        margin: 0rem 0.1rem;
     }
+    footer ul li img{
+        height:5rem;
+    }
+}
+@media (min-width:1201px){
+    footer ul{
+        padding: 1rem;
+    }
+    footer ul li{
+        list-style-type: none;
+        margin: 0rem 0.1rem;
+    }
+    footer ul li img{
+        height:7rem;
+    }
+
 }

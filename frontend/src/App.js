@@ -6,6 +6,7 @@ function App() {
   return (
     <>
     <Header/>
+    <main>HOLAAAAAAAAAAAA ESPACION PARA TAREAS</main>
     <Footer/>
 
     </>
