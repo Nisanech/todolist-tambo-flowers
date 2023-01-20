@@ -1,0 +1,27 @@
+GET http://localhost:5000/api/todos
+
+###
+
+POST http://localhost:5000/api/todo/new
+Content-Type: application/json
+
+{
+    "title": "Tarea de prueba"
+}
+
+###
+
+DELETE http://localhost:5000/api/todo/delete/63c9d8586640bc8718b631f6
+
+###
+
+GET http://localhost:5000/api/todo/toggleStatus/63c9d8596640bc8718b631f8
+
+###
+
+PUT http://localhost:5000/api/todo/editTodo/63c9d8566640bc8718b631f4
+Content-Type: application/json
+
+{
+    "title": "Tarea de prueba editada"
+}

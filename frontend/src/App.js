@@ -1,23 +1,102 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "./App.modules.css";
+
+const BASE_URL = "http://localhost:5000/api";
 
 function App() {
+  const [todos, setTodos] = useState(null);
+  const [todo, setTodo] = useState("")
+
+  useEffect(() => {
+    getTodos();
+  }, []);
+
+  const getTodos = () => {
+    axios
+      .get(`${BASE_URL}/todos`)
+      .then((res) => setTodos(res.data))
+      .catch((err) => console.error(err));
+  };
+  
+  const handleAddTodo = () => {
+    axios
+      .post(`${BASE_URL}/todo/new`, {
+        title: todo,
+      })
+      .then((res) => {
+        setTodos([...todos, res.data]);
+        setTodo("");
+      })
+      .catch((err) => console.error(err));
+  };
+
+  const handleDeleteTodo = (id) => {
+    axios
+      .delete(`${BASE_URL}/todo/delete/${id}`)
+      .then((res) => {
+        setTodos(todos.filter((todo) => todo._id !== res.data._id));
+      })
+      .catch((err) => console.error(err));
+  };
+
+  const handleTodoClick = (id) => {
+    axios
+      .get(`${BASE_URL}/todo/toggleStatus/${id}`)
+      .then((res) => getTodos())
+      .catch((err) => console.error(err));
+  };
+
+  const handleEditTodo = (id) => {
+    axios.put(`${BASE_URL}/todo/editTodo/${id}`, {
+      title: todo,
+    })
+    .then((res) => getTodos())
+    .catch((err) => console.error(err));
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="todo-input-wrapper">
+        <input
+          className="todo-input-bar"
+          value={todo}
+          onChange={(e) => setTodo(e.target.value)}
+          placeholder="Nueva tarea"
+        />
+
+        <div className="add-button" onClick={handleAddTodo}>
+          +
+        </div>
+      </div>
+
+      <div className="todos-list">
+        {!todos || !todos.length ? (
+          <h3 style={{ textAlign: "center" }}>No hay tareas</h3>
+        ) : (
+          todos.map((todo) => (
+            <div className="todo" key={todo._id}>
+              <span
+                onClick={() => handleTodoClick(todo._id)}
+                className={todo.completed ? "complete" : ""}
+                id="todo-title"
+              >
+                {todo.title}
+              </span>
+
+              <span
+                className="delete"
+                onClick={() => handleDeleteTodo(todo._id)}
+              >
+                -
+              </span>
+
+              <span className="edit" onClick={() => handleEditTodo(todo._id)}>
+                E
+              </span>
+            </div>
+          ))
+        )}
+      </div>
     </div>
   );
 }
