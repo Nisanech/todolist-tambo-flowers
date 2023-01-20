@@ -5,18 +5,34 @@ header{
 }
 
 header img{
-    height: 35rem;
+    height: 20rem;
 }
 header img.flor-izq{
     transform: scaleX(-1)
 }
 
-@media (min-width:768px){
-    footer img{ 
-        height:5rem;
-    }
-    footer ul li{
-        list-style-type: none;
-        margin: 0.1rem 0.3rem;
-    }
+/* QUERY CELULAR */
+@media (max-width:481px){   
+header img{
+    height: 4rem;
+}
+}
+
+
+/* QUERY TABLET*/
+@media (min-width:766px){
+   
+header img{
+    height: 10rem;
+}
+}
+
+
+/* QUERY DESKTOP*/
+@media (min-width:1024px){
+   
+header img{
+    height: 12rem;
+}
+
 }

@@ -6,7 +6,7 @@ function App() {
   return (
     <>
     <Header/>
-    <main>HOLAAAAAAAAAAAA ESPACION PARA TAREAS</main>
+    <main><p>HOLAAAAAAAAAAAA ESPACION PARA TAREAS</p></main>
     <Footer/>
 
     </>

@@ -1,5 +1,39 @@
 main{
   background-image: url(https://drive.google.com/uc?export=view&id=1dpbqDbux4UkbQmd8FHHI0MBh7V9eUXTW);
   background-size:contain;
-  font-size: 600PX;
+
 }
+
+/* QUERY CELULAR */
+@media (max-width:481px){   
+  main{
+    font-size: 6px;
+}
+p{
+  font-size: 2rem;
+}
+  }
+  
+  
+  /* QUERY TABLET*/
+  @media (min-width:766px){
+     
+main{
+      font-size: 10px;
+  }
+  p{
+    font-size: 5rem;
+  }
+  }
+  
+  
+  /* QUERY DESKTOP*/
+  @media (min-width:1024px){
+     
+    main{
+      font-size: 15px;
+  }
+  p{
+    font-size: 4rem;
+  }
+  }
