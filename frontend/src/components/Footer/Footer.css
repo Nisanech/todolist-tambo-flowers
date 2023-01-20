@@ -1,0 +1,32 @@
+footer{
+    background-color: #DEA5A5;
+}
+footer ul{
+    display: flex;
+    padding: 1rem;
+    justify-content: center;
+}
+footer ul li{
+    list-style-type: none;
+    margin: 0rem 1.3rem;
+}
+footer img{
+    height:50rem;
+}
+
+@media (max-width:481px){
+    footer img{ 
+        height:2.3rem;
+    }
+    footer ul li{
+        margin: 0.1rem 0.1rem;
+    }
+}
+@media (min-width:768px){
+    footer img{ 
+        height:4rem;
+    }
+    footer ul li{
+        margin: 0.1rem 0.1rem;
+    }
+}

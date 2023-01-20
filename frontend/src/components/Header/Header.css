@@ -1,0 +1,22 @@
+header{
+        background-color: #DEA5A5;
+        display: flex;
+        justify-content: space-between;
+}
+
+header img{
+    height: 35rem;
+}
+header img.flor-izq{
+    transform: scaleX(-1)
+}
+
+@media (min-width:768px){
+    footer img{ 
+        height:5rem;
+    }
+    footer ul li{
+        list-style-type: none;
+        margin: 0.1rem 0.3rem;
+    }
+}
