@@ -3,6 +3,7 @@ import TodoForm from './TodoForm';
 import Todo from './Todo';
 import { BsSearch} from 'react-icons/bs';
 import "../App.css"
+import Swal from 'sweetalert2'
 
 function TodoList() {
     const [todos, setTodos] = useState([]);
@@ -42,6 +43,14 @@ function TodoList() {
         setTodos(updatedTodos);
     };
 
+    const popUp=()=>{
+        Swal.fire(
+            {   
+                html:"<h1> HISTORIAL DE TAREAS</h1>"+"<button> TODAS </button> "+"<button>REALIZADAS </button> "+"<button>ELIMINADAS </button>"
+            }
+        )
+        }
+
     return (
         <>
             <h1>AÑADIR TAREA</h1>
@@ -49,12 +58,14 @@ function TodoList() {
             <h1> Lista de tareas</h1>
             <div> 
                 <input className='search' type="text" placeholder='Buscar tarea'/>
-                <BsSearch 
+                <BsSearch npm install sweetalert2
+
                     /* onClick={() => removeTodo(todo.id)}
                     className='delete-icon' */
-                />
-                <h2> VER HISTORIAL DE TAREAS </h2>
-                
+/>
+                <button onClick={()=>popUp()}>
+                <h2 > VER HISTORIAL DE TAREAS </h2>
+                </button>
             </div>
             <Todo
                 todos={todos}
