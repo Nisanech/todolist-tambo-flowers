@@ -4,7 +4,7 @@ const Todo = require("../models/todoModel");
 // req = require & res = response
 // Obtener tareas
 const getTodos = async (req, res) => {
-  const todos = await Todo.find();
+  const todos = await Todo.find({ visible: true });
 
   res.json(todos);
 }; 
@@ -30,13 +30,15 @@ const editTodo = async (req, res) => {
 };
 
 // Eliminar tareas
-const deleteTodo = async (req, res) => {
-  const deletedTodo = await Todo.findByIdAndDelete(
-    req.params.id,
-    req.body.title
-  );
+// Delete task
+const toggleTodoDelete = async (req, res) => {
+  const todo = await Todo.findById(req.params.id);
 
-  res.json(deletedTodo);
+  todo.visible = !todo.visible;
+
+  todo.save();
+
+  res.json(todo);
 };
 
 // Tarea completada
@@ -51,6 +53,6 @@ const toggleTodoStatus = async (req, res) => {
 
 exports.getTodos = getTodos;
 exports.createTodo = createTodo;
-exports.deleteTodo = deleteTodo;
+exports.toggleTodoDelete = toggleTodoDelete;
 exports.toggleTodoStatus = toggleTodoStatus;
 exports.editTodo = editTodo; 

@@ -18,6 +18,10 @@ function App() {
       .then((res) => setTodos(res.data))
       .catch((err) => console.error(err));
   };
+
+
+
+  console.log(todos)
   
   const handleAddTodo = () => {
     axios
@@ -31,18 +35,16 @@ function App() {
       .catch((err) => console.error(err));
   };
 
-  const handleDeleteTodo = (id) => {
-    axios
-      .delete(`${BASE_URL}/todo/delete/${id}`)
-      .then((res) => {
-        setTodos(todos.filter((todo) => todo._id !== res.data._id));
-      })
-      .catch((err) => console.error(err));
-  };
-
   const handleTodoClick = (id) => {
     axios
       .get(`${BASE_URL}/todo/toggleStatus/${id}`)
+      .then((res) => getTodos())
+      .catch((err) => console.error(err));
+  };
+  
+  const handleTodoDeleteClick = (id) => {
+    axios
+      .get(`${BASE_URL}/todo/toggleDelete/${id}`)
       .then((res) => getTodos())
       .catch((err) => console.error(err));
   };
@@ -85,7 +87,7 @@ function App() {
 
               <span
                 className="delete"
-                onClick={() => handleDeleteTodo(todo._id)}
+                onClick={() => handleTodoDeleteClick(todo._id)}
               >
                 -
               </span>

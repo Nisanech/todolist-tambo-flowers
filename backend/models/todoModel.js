@@ -12,6 +12,10 @@ const TodoSchema = new Schema({
     type: Boolean,
     default: false,
   },
+  visible: {
+    type: Boolean,
+    default: true,
+  },
 });
 
 const Todo = mongoose.model("Todo", TodoSchema);
