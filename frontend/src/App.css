@@ -2,12 +2,208 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-}
-main{
-  background-image: url(https://drive.google.com/uc?export=view&id=1dpbqDbux4UkbQmd8FHHI0MBh7V9eUXTW);
-  background-size:contain;
 
 }
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,700;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,800;1,900&display=swap');
+
+main{
+
+  font-family: 'Montserrat', sans-serif;
+}
+body {
+  background-image: url(https://drive.google.com/uc?export=view&id=1dpbqDbux4UkbQmd8FHHI0MBh7V9eUXTW);
+  background-size: 30rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  
+}
+.todo-app {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 520px;
+  min-height: 600px;
+  background: #161a2b;
+  text-align: center;
+  margin: 128px auto;
+  border-radius: 10px;
+  padding-bottom: 32px;
+}
+
+h1 {
+  margin: 32px 0;
+  color: rgb(0, 0, 0);
+  font-size: 24px;
+  
+}
+
+.complete {
+  text-decoration: line-through;
+  opacity: 0.4;
+}
+
+.todo-form {
+  margin-bottom: 32px;
+}
+
+.todo-input {
+  padding: 14px 32px 14px 16px;
+  border-radius: 4px 0 0 4px;
+  border: 2px solid #F9C9C9;
+  outline: none;
+  width: 320px;
+  background: transparent;
+  color: rgb(0, 0, 0);
+  font-family:'Montserrat', sans-serif;
+}
+
+.todo-input::placeholder {
+  color: #000000;
+}
+
+.todo-button {
+  padding: 16px;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  outline: none;
+  background-color: #F9C9C9;
+  color: #000;
+  text-transform: capitalize;
+  font-family:'Montserrat', sans-serif;
+}
+.search{
+  font-family:'Montserrat', sans-serif;
+}
+
+.todo-input.edit {
+  border: 2px solid #000000;
+}
+
+.todo-button.edit {
+  background: linear-gradient(
+    90deg,
+    #f9c9c9 0%,
+    #ffe8e8 100%
+  );
+  padding: 16px 22px;
+}
+
+.todo-container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.todo-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4px auto;
+  color: rgb(0, 0, 0);
+  background: linear-gradient(
+    90deg,
+    #f9c9c9 0%,
+    #ffe8e8 100%
+  );
+
+  padding: 16px;
+  border-radius: 5px;
+  width: 70%;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.delete-icon {
+  margin-right: 5px;
+  color: rgb(250, 77, 77);
+}
+
+.edit-icon {
+  color: rgb(92, 160, 248);
+}
+
+/* ----DIVS---  */
+.cardAdd{
+  background-color:#ffffff;
+  text-align: center;
+  justify-items: center;
+  width: 70%;
+  padding: 2rem;
+  margin: 3rem auto;
+  border-radius: 1rem;
+  box-shadow: 15px 13px 50px -6px rgba(82,82,82,1);
+}
+.cardList{
+    background-color:#ffffff;
+    text-align: center;
+    justify-items: center;
+    width: 70%;
+    padding: 1.8rem;
+    margin: 3rem auto;
+    border-radius: 1rem;
+    box-shadow: 15px 13px 50px -6px rgba(82,82,82,1);
+  }
+.search{
+    background-color:#ffffff;
+    text-align: center;
+    width: 70%;
+    padding: 1rem;
+    margin: 0rem 2rem;
+    border: solid #F9C9C9;
+    border-radius: 0.8rem;
+}
+  .buttonHistorial{
+    background-color:#F9C9C9;
+    font-family:'Montserrat', sans-serif;
+    text-align: center;
+    justify-items: center;
+    padding: 0.8rem;
+    margin: 3rem auto;
+    border-radius: 1rem;
+    border: none;
+  }
+
+  .buttonHistorial:hover{
+    transform: scale(1.1);
+    transition: 200ms ease-in ;
+    cursor: pointer;
+
+  }
+
+div.inputSearch{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lupaSearch{
+  color:#000;
+  font-size: 2rem;
+}
+.swal2-container button{
+  background-color:#f9c9c9;
+  margin: 0.2rem;
+  padding: 0.5rem;
+  border: solid #F9C9C9;
+  border-radius: 0.6rem;
+  font-family: 'Montserrat', sans-serif;
+}
+button.swal2-styled.swal2-confirm {
+  border: 0;
+  border-radius: 0.25em;
+  background-color: #f9c9c9;
+  color: #000;
+  font-size: 1rem;
+  font-weight: bolder;
+  padding: 0.5rem 1.2rem;
+}
+
+/* ---------------------------------MEDIA QUERIES -------------------- */
 
 /* QUERY CELULAR */
 @media (max-width:481px){   
