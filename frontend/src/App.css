@@ -107,13 +107,13 @@ h1 {
   color: rgb(0, 0, 0);
   background: linear-gradient(
     90deg,
-    rgba(255, 118, 20, 1) 0%,
-    rgba(255, 84, 17, 1) 100%
+    rgba(255, 12, 241, 1) 0%,
+    rgba(250, 0, 135, 1) 100%
   );
 
   padding: 16px;
   border-radius: 5px;
-  width: 90%;
+  width: 70%;
 }
 
 .todo-row:nth-child(4n + 1) {
@@ -127,8 +127,8 @@ h1 {
 .todo-row:nth-child(4n + 2) {
   background: linear-gradient(
     90deg,
-    rgba(255, 12, 241, 1) 0%,
-    rgba(250, 0, 135, 1) 100%
+    rgba(255, 118, 20, 1) 0%,
+    rgba(255, 84, 17, 1) 100%
   );
 }
 
