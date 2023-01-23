@@ -66,22 +66,19 @@ function TodoList() {
         <div>
           <div className="inputSearch">
             <input className="search" type="text" placeholder="Buscar tarea" />
-            <BsSearch 
-              /* onClick={() => removeTodo(todo.id)}
-                      className='delete-icon' */
-            />
+            <BsSearch className="lupaSearch"/>
           </div>
           <button className="buttonHistorial" onClick={() => popUp()}>
             <h2> Ver historial de tareas</h2>
           </button>
         </div>
-      </div>
       <Todo
         todos={todos}
         completeTodo={completeTodo}
         removeTodo={removeTodo}
         updateTodo={updateTodo}
       />
+      </div>
     </>
   );
 }
