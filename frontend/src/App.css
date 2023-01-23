@@ -7,12 +7,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,700;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,800;1,900&display=swap');
 
 main{
-  background-image: url(https://drive.google.com/uc?export=view&id=1dpbqDbux4UkbQmd8FHHI0MBh7V9eUXTW);
-  background-size:contain;
+
   font-family: 'Montserrat', sans-serif;
 }
 body {
-  background-color: rgb(57, 185, 194);
+  background-image: url(https://drive.google.com/uc?export=view&id=1dpbqDbux4UkbQmd8FHHI0MBh7V9eUXTW);
+  background-size: 30rem;
+  background-repeat: no-repeat;
+  background-position: center;
   
 }
 .todo-app {
@@ -153,6 +155,49 @@ h1 {
 .edit-icon {
   color: rgb(92, 160, 248);
 }
+
+/* ----DIVS---  */
+.cardAdd{
+  background-color:#ffffff;
+  text-align: center;
+  justify-items: center;
+  width: 70%;
+  padding: 2rem;
+  margin: 3rem auto;
+  border-radius: 1rem;
+  box-shadow: 15px 13px 50px -6px rgba(82,82,82,1);
+}
+.cardList{
+    background-color:#ffffff;
+    text-align: center;
+    justify-items: center;
+    width: 70%;
+    padding: 2rem;
+    margin: 3rem auto;
+    border-radius: 1rem;
+    box-shadow: 15px 13px 50px -6px rgba(82,82,82,1);
+  }
+.search{
+    background-color:#ffffff;
+    text-align: center;
+    width: 70%;
+    padding: 1rem;
+    margin: 0rem 2rem;
+    border-radius: 1rem;
+}
+  .buttonHistorial{
+    background-color:#F9C9C9;
+    font-family:'Montserrat', sans-serif;
+    text-align: center;
+    justify-items: center;
+    padding: 0.8rem;
+    margin: 3rem auto;
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 0px 42px 28px -30px rgba(82,82,82,1);
+  }
+
+/* ---------------------------------MEDIA QUERIES -------------------- */
 
 /* QUERY CELULAR */
 @media (max-width:481px){   
