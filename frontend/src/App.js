@@ -1,9 +1,10 @@
 
 import './App.css';
-import Addlist from './addlist/Addlist';
+
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
-import CardTo from './components/cardTo/CardTo'
+
+import TodoList from './compone/TodoList';
 
 function App() {
   const DATA = [
@@ -12,9 +13,9 @@ function App() {
   return (
     <>
     <Header/>
-    <Addlist/>
-    <CardTo tasks={DATA} />
     
+    
+    <TodoList />
     <Footer/>
 
     </>
