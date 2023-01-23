@@ -1,9 +1,8 @@
-//Permite trabajar con la base de datos
+// Allows you to work with the database
 const mongoose= require('mongoose');
-
 const Schema= mongoose.Schema
 
-//Estructura de la colección en la base de datos
+// Structure of the collection in the database
 const TodoSchema= new Schema({
     title:{
         type:String,
