@@ -53,7 +53,7 @@ function TodoList() {
                     /* onClick={() => removeTodo(todo.id)}
                     className='delete-icon' */
                 />
-                
+                <h2> VER HISTORIAL DE TAREAS </h2>
                 
             </div>
             <Todo
