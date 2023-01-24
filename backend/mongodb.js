@@ -1,6 +1,7 @@
 //Conexión de la BD 
 const mongoose = require("mongoose");
 
+// Connecto to database
 const connectDB = () =>
   mongoose
     .connect("mongodb://127.0.0.1:27017/todolist", { //url de mongo con metodo para conexión 

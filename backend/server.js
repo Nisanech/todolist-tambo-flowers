@@ -10,6 +10,7 @@ const todoRoute = require("./routes/todoRoutes"); //Rutas
 
 app.use(express.json()); //respuesta de express se convierte a json 
 
+// Use Cors
 app.use(cors());
 
 connectDB();

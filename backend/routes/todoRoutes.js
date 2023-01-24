@@ -2,8 +2,8 @@
 const express = require('express')
 const router = express.Router()
 
+// Get functionality from controller
 const {getTodos, createTodo, editTodo, toggleTodoStatus, toggleTodoDelete} = require('../controllers/todoController')
-
 
 router.get("/todos", getTodos) // Get task
 router.post("/todo/new", createTodo) // Create task
