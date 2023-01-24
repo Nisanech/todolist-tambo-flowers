@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./App.modules.css";
+import Todo from './components/Todo'
 
 const BASE_URL = "http://localhost:5000/api";
 
 function App() {
   const [todos, setTodos] = useState(null);
   const [todo, setTodo] = useState("")
+
 
   useEffect(() => {
     getTodos();
@@ -18,8 +20,6 @@ function App() {
       .then((res) => setTodos(res.data))
       .catch((err) => console.error(err));
   };
-
-  console.log(todos)
   
   const handleAddTodo = () => {
     axios
@@ -33,27 +33,7 @@ function App() {
       .catch((err) => console.error(err));
   };
 
-  const handleTodoClick = (id) => {
-    axios
-      .get(`${BASE_URL}/todo/toggleStatus/${id}`)
-      .then((res) => getTodos())
-      .catch((err) => console.error(err));
-  };
-  
-  const handleTodoDeleteClick = (id) => {
-    axios
-      .get(`${BASE_URL}/todo/toggleDelete/${id}`)
-      .then((res) => getTodos())
-      .catch((err) => console.error(err));
-  };
 
-  const handleEditTodo = (id) => {
-    axios.put(`${BASE_URL}/todo/editTodo/${id}`, {
-      title: todo,
-    })
-    .then((res) => getTodos())
-    .catch((err) => console.error(err));
-  }
   return (
     <div className="App">
       <div className="todo-input-wrapper">
@@ -74,26 +54,7 @@ function App() {
           <h3 style={{ textAlign: "center" }}>No hay tareas</h3>
         ) : (
           todos.map((todo) => (
-            <div className="todo" key={todo._id}>
-              <span
-                onClick={() => handleTodoClick(todo._id)}
-                className={todo.completed ? "complete" : ""}
-                id="todo-title"
-              >
-                {todo.title}
-              </span>
-
-              <span
-                className="delete"
-                onClick={() => handleTodoDeleteClick(todo._id)}
-              >
-                -
-              </span>
-
-              <span className="edit" onClick={() => handleEditTodo(todo._id)}>
-                E
-              </span>
-            </div>
+            <Todo todo={todo}/>
           ))
         )}
       </div>
