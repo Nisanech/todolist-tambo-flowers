@@ -1,4 +1,5 @@
 // Import model
+// const { response } = require("express");
 const Todo = require("../models/todoModel");
 
 // req = require & res = response
@@ -11,14 +12,18 @@ const getTodos = async (req, res) => {
 };
 
 // Create task
-const createTodo = (req, res) => {
-  const todo = new Todo({
-    title: req.body.title,
-  });
+const createTodo = async (request, response) => {
+  try {
+    const newTodo = await Todo.create({
+      title: request.body.title,
+    })
 
-  todo.save();
+    await newTodo.save()
 
-  res.json(todo);
+    return response.status(200).json(newTodo)
+  } catch (error) {
+    return response.status(500).json(error.message)
+  }
 };
 
 // Edit task

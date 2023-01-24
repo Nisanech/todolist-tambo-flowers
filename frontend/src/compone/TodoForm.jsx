@@ -24,7 +24,7 @@ function TodoForm(props) {
     };
 
     return (
-        <form onSubmit={handleSubmit} className='todo-form'>
+        <form onSubmit={handleSubmit} >
             {props.edit ? (
                 <>
                     <input
@@ -41,17 +41,7 @@ function TodoForm(props) {
                 </>
             ) : (
                 <>
-                    <input
-                        placeholder='Añadir a lista de tareas'
-                        value={input}
-                        onChange={handleChange}
-                        name='text'
-                        className='todo-input'
-                        ref={inputRef}
-                    />
-                    <button onClick={handleSubmit} className='todo-button'>
-                        Agregar
-                    </button>
+                    
                 </>
             )}
         </form>

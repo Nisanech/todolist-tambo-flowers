@@ -1,0 +1,36 @@
+h1 {
+    margin: 32px 0;
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+    
+  }
+
+  .cardAdd{
+    background-color:#ffffff;
+    text-align: center;
+    justify-items: center;
+    width: 70%;
+    padding: 2rem;
+    margin: 3rem auto;
+    border-radius: 1rem;
+    box-shadow: 15px 13px 50px -6px rgba(82,82,82,1);
+  }
+
+  .todo-form {
+    margin-bottom: 32px;
+  }
+
+  .todo-input {
+    padding: 14px 32px 14px 16px;
+    border-radius: 4px 0 0 4px;
+    border: 2px solid #F9C9C9;
+    outline: none;
+    width: 320px;
+    background: transparent;
+    color: rgb(0, 0, 0);
+    font-family:'Montserrat', sans-serif;
+  }
+  
+  .todo-input::placeholder {
+    color: #000000;
+  }
