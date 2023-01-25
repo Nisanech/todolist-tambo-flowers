@@ -30,7 +30,7 @@ const getAllTodos = async (request, response) => {
     return response.status(200).json(todos);
   } catch (error) {
     // Retorna el estado 500 si hay un error en el envío de la petición
-    return response.status(500).json(error.message);
+    return response.status(500).send("Erroooooooooor");
   }
 };
 
