@@ -26,7 +26,7 @@ app.use(cors());
 connectDB();
 
 // Routes for the requests
-app.use("/api", todoRoute);
+app.use("/todos", todoRoute);
 
 // Server port
 app.listen(PORT, () => {
