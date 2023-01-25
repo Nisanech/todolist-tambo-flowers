@@ -4,6 +4,9 @@ const express = require("express");
 // Allows making HTTP requests
 const cors = require("cors");
 
+// PORT
+const PORT = process.env.PORT || 5000
+
 // Database connection
 const connectDB = require("./mongodb");
 
@@ -26,6 +29,6 @@ connectDB();
 app.use("/api", todoRoute);
 
 // Server port
-app.listen(5000, () => {
-  console.log("Server is running on port 5000");
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
