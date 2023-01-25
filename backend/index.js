@@ -3,6 +3,8 @@ const express = require("express");
 
 // Allows making HTTP requests
 const cors = require("cors");
+const DIRECTORIO_PERMITIDO_CORS =
+  "https://todolist-tambo-flowers-back.vercel.app/";
 
 // PORT
 const PORT = process.env.PORT || 5000
@@ -20,7 +22,11 @@ const app = express();
 app.use(express.json());
 
 // Use Cors
-app.use(cors());
+app.use(
+  cors({
+    origin: DIRECTORIO_PERMITIDO_CORS,
+  })
+);
 
 // Función para hacer uso de la conexión de la base de datos
 connectDB();
