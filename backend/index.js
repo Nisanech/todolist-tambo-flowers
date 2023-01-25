@@ -28,6 +28,10 @@ connectDB();
 // Routes for the requests
 app.use("/api", todoRoute);
 
+app.get('/', (req, res) => {
+  return res.status(200).send('Hola')
+})
+
 // Server port
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

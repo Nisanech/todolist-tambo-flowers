@@ -13,7 +13,7 @@ import {
 
 // URL desde donde se hará el consumo de la API
 //const API_URL = "http://localhost:5000/api"; // local
-const API_URL = "https://todolist-tambo-flowers-back.vercel.app";
+const API_URL = "https://todolist-tambo-flowers-back.vercel.app/api";
 
 // Función para agregar una nueva tarea
 //? Párametros: data -> Información de la tarea / dispatch -> Para disparar la acción desde el componente
@@ -35,22 +35,17 @@ export const addNewTodo = (data) => async (dispatch) => {
 // Función para obtener todas las tareas
 export const getAllTodos = () => async (dispatch) => {
   try {
-    const config = {
-      url: "https://todolist-tambo-flowers-back.vercel.app",
-      method: "GET",
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        origin: "x-requested-with",
-        "Access-Control-Allow-Headers":
-          "POST, GET, PUT, DELETE, OPTIONS, HEAD, Authorization, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Access-Control-Allow-Origin",
-        "Content-Type": "application/json",
-      },
-    };
     // Acceso a la ruta de la API que ejecuta la función de listar todas las tareas
-    const res = await axios(config);
+    const res = await fetch(`${API_URL}/todos`, {
+      headers: {
+        'Access-Control-Allow-Origin': 'https://todolist-tambo-flowers-back.vercel.app'
+      }
+    })
 
+    const json = await res.json()
+    dispatch({ type: GETALL_TODO, payload: json });
     // Se referencia el tipo de acción y los datos que recibe
-    dispatch({ type: GETALL_TODO, payload: res.data });
+    // dispatch({ type: GETALL_TODO, payload: res.data });
   } catch (error) {
     // Se captura el error en caso de que no se puedan obtener las tareas
     console.log("Error al cargar las tareas", error.message);
