@@ -9,7 +9,7 @@ import { addNewTodo } from "../../redux/actions/index";
 import "./TodoForm.css";
 
 const TodoForm = () => {
-  const [text, setText] = useState();
+  const [text, setText] = useState("");
 
   const dispatch = useDispatch();
 
@@ -26,17 +26,19 @@ const TodoForm = () => {
   const onInputChange = (e) => {
     setText(e.target.value);
   };
+
   return (
     <>
       <div className="cardAdd">
         <h1>AÑADIR TAREA</h1>
 
-        <form className="todo-form">
+        <form className="todo-form" onSubmit={onFormSubmit}>
           <input
             placeholder="Añadir a lista de tareas"
             className="todo-input"
             onChange={onInputChange}
             value={text}
+            type="text"
           />
           <button className="todo-button" onClick={onFormSubmit}>
             Agregar

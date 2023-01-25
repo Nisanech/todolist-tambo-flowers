@@ -5,10 +5,10 @@ const express = require("express");
 const cors = require("cors");
 
 // Database connection
-const connectDB = require("./mongodb")
+const connectDB = require("./mongodb");
 
 // Routes
-const todoRoute = require("./routes/todoRoutes")
+const todoRoute = require("./routes/todoRoutes");
 
 // Express application
 const app = express();
@@ -22,7 +22,7 @@ app.use(cors());
 connectDB();
 
 // Routes for the requests
-app.use("/api", todoRoute); 
+app.use("/api", todoRoute);
 
 // Server port
 app.listen(5000, () => {

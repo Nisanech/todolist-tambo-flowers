@@ -1,18 +1,16 @@
 // Import dependencies
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import {Provider} from 'react-redux'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
 
 // Import store redux
-import store from './redux/store'
+import store from "./redux/store";
 
 // Import components
-import App from './App';
+import App from "./App";
 
 // Import styles
-import './index.css';
-
-
+import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

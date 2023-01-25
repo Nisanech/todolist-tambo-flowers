@@ -2,63 +2,86 @@
 // const { response } = require("express");
 const Todo = require("../models/todoModel");
 
-// req = require & res = response
-
-// Get all tasks
-const getTodos = async (req, res) => {
-  const todos = await Todo.find();
-
-  res.json(todos);
-};
-
 // Create task
-const createTodo = async (request, response) => {
+const addTodo = async (request, response) => {
   try {
     const newTodo = await Todo.create({
-      title: request.body.title,
-    })
+      data: request.body.data,
+    });
 
-    await newTodo.save()
+    await newTodo.save();
 
-    return response.status(200).json(newTodo)
+    return response.status(200).json(newTodo);
   } catch (error) {
-    return response.status(500).json(error.message)
+    return response.status(500).json(error.message);
+  }
+};
+
+// Get all tasks
+const getAllTodos = async (request, response) => {
+  try {
+    const todos = await Todo.find({visible: true});
+
+    return response.status(200).json(todos);
+  } catch (error) {
+    return response.status(500).json(error.message);
+  }
+};
+
+// Completed task
+const toggleTodoDone = async (request, response) => {
+  try {
+    const todoRef = await Todo.findById(request.params.id);
+
+    const todo = await Todo.findOneAndUpdate(
+      { _id: request.params.id },
+      { done: !todoRef.done }
+    );
+
+    await todo.save();
+
+    return response.status(200).json(todo);
+  } catch (error) {
+    return response.status(500).json(error.message);
   }
 };
 
 // Edit task
-const editTodo = async (req, res) => {
-  const todo = await Todo.findByIdAndUpdate(req.params.id, req.body);
+const updateTodo = async (request, response) => {
+  try {
+    await Todo.findOneAndUpdate(
+      { _id: request.params.id },
+      { data: request.body.data }
+    );
 
-  todo.save();
+    const todo = await Todo.findById(request.params.id);
 
-  res.json(todo);
-};
-
-// Completed task
-const toggleTodoStatus = async (req, res) => {
-  const todo = await Todo.findById(req.params.id);
-
-  todo.completed = !todo.completed;
-
-  todo.save();
-
-  res.json(todo);
+    return response.status(200).json(todo);
+  } catch (error) {
+    return response.status(500).json(error.message);
+  }
 };
 
 // Delete task
-const toggleTodoDelete = async (req, res) => {
-  const todo = await Todo.findById(req.params.id);
+const deleteTodo = async (request, response) => {
+  try {
+    const todoRef = await Todo.findById(request.params.id);
 
-  todo.visible = !todo.visible;
+    const todo = await Todo.findOneAndUpdate(
+      { _id: request.params.id },
+      { visible: !todoRef.visible }
+    );
 
-  todo.save();
+    await todo.save();
 
-  res.json(todo);
+    return response.status(200).json(todo);
+  } catch (error) {
+    return response.status(500).json(error.message);
+  }
 };
 
-exports.getTodos = getTodos;
-exports.createTodo = createTodo;
-exports.editTodo = editTodo;
-exports.toggleTodoStatus = toggleTodoStatus;
-exports.toggleTodoDelete = toggleTodoDelete;
+exports.getAllTodos = getAllTodos;
+exports.addTodo = addTodo;
+exports.updateTodo = updateTodo;
+exports.toggleTodoDone = toggleTodoDone;
+exports.deleteTodo = deleteTodo;

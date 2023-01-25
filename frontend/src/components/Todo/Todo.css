@@ -1,0 +1,42 @@
+.todo-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4px auto;
+  color: rgb(0, 0, 0);
+  background: linear-gradient(90deg, #f9c9c9 0%, #ffe8e8 100%);
+
+  padding: 16px;
+  border-radius: 5px;
+  width: 70%;
+}
+
+.complete {
+  text-decoration: line-through;
+  opacity: 0.4;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+  cursor: pointer;
+  align-items: center;
+  gap: 10px;
+}
+
+.check-icon {
+  color: rgb(50, 143, 73);
+}
+.delete-icon {
+  color: rgb(250, 77, 77);
+}
+
+.edit-icon {
+  color: rgb(92, 160, 248);
+}
+
+
+.todo-input.edit {
+  border: 2px solid #000000;
+}
