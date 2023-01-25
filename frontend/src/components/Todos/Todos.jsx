@@ -1,51 +1,58 @@
 // Import dependencies
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { BsSearch } from "react-icons/bs";
 
-// Import API
+// Importar disparador de acciones de Redux y Hook para indicar la tarea seleccionada
+import { useDispatch, useSelector } from "react-redux";
+
+// Importar acciones para el consumo de la API
 import { getAllTodos } from "../../redux/actions/index";
-import {ALL_TODOS, DONE_TODOS, ACTIVE_TODOS, DELETE_TODOS} from '../../redux/actions/type'
+
+// Importar el tipo para el filtro de las tareas
+import { ALL_TODOS, DONE_TODOS, ACTIVE_TODOS } from "../../redux/actions/type";
 
 // Import components
+import Tabs from "../Tabs/Tabs";
 import Todo from "../Todo/Todo";
-import Tabs from '../Tabs/Tabs'
 
 // Import styles
 import "./Todos.css";
 
 const Todos = () => {
+  // Disparador de acciones del reducer
   const dispatch = useDispatch();
-  const todos = useSelector((state) => state.todos);
-  const currentTab = useSelector((state) => state.currentTab)
 
+  // Identifica la tarea seleccionada
+  const todos = useSelector((state) => state.todos);
+
+  // Tab o filtro actual de las tareas
+  const currentTab = useSelector((state) => state.currentTab);
+
+  // Renderiza el componente al cargar todas las tareas que se encuentran en la base de datos
   useEffect(() => {
+    // Dispara la acción para obtener todas las tareas
     dispatch(getAllTodos());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Función para cargar las tareas de acuerdo al filtro seleccionado
   const getTodos = () => {
     if (currentTab === ALL_TODOS) {
-      return todos
+      return todos;
     } else if (currentTab === ACTIVE_TODOS) {
-      return todos.filter(todo => !todo.done)
+      return todos.filter((todo) => !todo.done);
     } else if (currentTab === DONE_TODOS) {
-      return todos.filter(todo => todo.done)
-    } else if (currentTab === DELETE_TODOS) {
-      return todos.filter(todo => !todo.visible)
+      return todos.filter((todo) => todo.done);
     }
-  }
+  };
 
   return (
     <div className="cardList">
       <h1> LISTA DE TAREAS</h1>
+
       <div>
-        <div className="inputSearch">
-          <input className="search" type="text" placeholder="Buscar tarea" />
-          <BsSearch className="lupaSearch" />
-        </div>
-        <Tabs currentTab={currentTab}/>
+        <Tabs currentTab={currentTab} />
       </div>
+
       {getTodos().map((todo, index) => (
         <Todo key={index} todo={todo} />
       ))}

@@ -1,6 +1,8 @@
 // Import dependencies
 import React from "react";
 import ReactDOM from "react-dom/client";
+
+// Importar provider para hacer uso del Context de la aplicación
 import { Provider } from "react-redux";
 
 // Import store redux

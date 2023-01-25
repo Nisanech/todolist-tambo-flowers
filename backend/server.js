@@ -19,6 +19,7 @@ app.use(express.json());
 // Use Cors
 app.use(cors());
 
+// Función para hacer uso de la conexión de la base de datos
 connectDB();
 
 // Routes for the requests

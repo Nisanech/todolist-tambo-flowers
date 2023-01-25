@@ -15,39 +15,6 @@ body {
   background-position: center;
 }
 
-
-
-.todo-button.edit {
-  background: linear-gradient(90deg, #f9c9c9 0%, #ffe8e8 100%);
-  padding: 16px 22px;
-}
-
-.todo-container {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-}
-
-/* ----DIVS---  */
-
-.swal2-container button {
-  background-color: #f9c9c9;
-  margin: 0.2rem;
-  padding: 0.5rem;
-  border: solid #f9c9c9;
-  border-radius: 0.6rem;
-  font-family: "Montserrat", sans-serif;
-}
-button.swal2-styled.swal2-confirm {
-  border: 0;
-  border-radius: 0.25em;
-  background-color: #f9c9c9;
-  color: #000;
-  font-size: 1rem;
-  font-weight: bolder;
-  padding: 0.5rem 1.2rem;
-}
-
 /* ---------------------------------MEDIA QUERIES -------------------- */
 
 /* QUERY CELULAR */
