@@ -20,13 +20,13 @@ const app = express();
 app.use(express.json());
 
 // Use Cors
-app.use(cors());
+app.use(cors({ origin: true, credentials: true }));
 
 // Función para hacer uso de la conexión de la base de datos
 connectDB();
 
 // Routes for the requests
-app.use("/todos", todoRoute);
+app.use("/api", todoRoute);
 
 // Server port
 app.listen(PORT, () => {
