@@ -4,7 +4,7 @@ const express = require("express");
 // Allows making HTTP requests
 const cors = require("cors");
 const DIRECTORIO_PERMITIDO_CORS =
-  "https://todolist-tambo-flowers-back.vercel.app/todos";
+  "https://todolist-tambo-flowers-back.vercel.app/";
 
 // PORT
 const PORT = process.env.PORT || 5000
@@ -32,7 +32,7 @@ app.use(
 connectDB();
 
 // Routes for the requests
-app.use("/api", todoRoute);
+app.use("", todoRoute);
 
 // Server port
 app.listen(PORT, () => {
