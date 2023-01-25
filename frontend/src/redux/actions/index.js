@@ -12,15 +12,15 @@ import {
 } from "./type";
 
 // URL desde donde se hará el consumo de la API
-// const API_URL = "http://localhost:5000/api"; // local
-const API_URL = "https://todolist-tambo-flowers-back.vercel.app/";
+//const API_URL = "http://localhost:5000/api"; // local
+const API_URL = "https://todolist-tambo-flowers-back.vercel.app";
 
 // Función para agregar una nueva tarea
 //? Párametros: data -> Información de la tarea / dispatch -> Para disparar la acción desde el componente
 export const addNewTodo = (data) => async (dispatch) => {
   try {
     // Acceso a la ruta de la API que ejecuta la función de una nueva tarea desde el controlador, junto con el valor del data
-    const res = await axios.post(`${API_URL}/todo/new`, { data });
+    const res = await axios.post(`/todo/new`, { data });
 
     // Se referencia el tipo de acción y los datos que recibe
     dispatch({ type: ADDNEW_TODO, payload: res.data });
@@ -34,7 +34,7 @@ export const addNewTodo = (data) => async (dispatch) => {
 export const getAllTodos = () => async (dispatch) => {
   try {
     // Acceso a la ruta de la API que ejecuta la función de listar todas las tareas
-    const res = await axios.get(`${API_URL}/todos`);
+    const res = await axios.get(`/todos`);
 
     // Se referencia el tipo de acción y los datos que recibe
     dispatch({ type: GETALL_TODO, payload: res.data });
@@ -48,7 +48,7 @@ export const getAllTodos = () => async (dispatch) => {
 export const toggleTodo = (id) => async (dispatch) => {
   try {
     // Acceso a la ruta de la API que ejecuta la función de listar todas las tareas
-    const res = await axios.get(`${API_URL}/todo/toggleStatus/${id}`);
+    const res = await axios.get(`/todo/toggleStatus/${id}`);
 
     // Se referencia el tipo de acción y los datos que recibe
     dispatch({ type: TOGGLE_TODO, payload: res.data });
@@ -62,7 +62,7 @@ export const toggleTodo = (id) => async (dispatch) => {
 export const updateTodo = (id, data) => async (dispatch) => {
   try {
     // Acceso a la ruta de la API que ejecuta la función de actualizar la tarea
-    const res = await axios.put(`${API_URL}/todo/editTodo/${id}`, { data });
+    const res = await axios.put(`/todo/editTodo/${id}`, { data });
 
     // Se referencia el tipo de acción y los datos que recibe
     dispatch({ type: UPDATE_TODO, payload: res.data });
@@ -76,7 +76,7 @@ export const updateTodo = (id, data) => async (dispatch) => {
 export const deleteTodo = (id) => async (dispatch) => {
   try {
     // Acceso a la ruta de la API que ejecuta la función de eliminar la tarea
-    const res = await axios.get(`${API_URL}/todo/toggleDelete/${id}`);
+    const res = await axios.get(`/todo/toggleDelete/${id}`);
 
     // Se referencia el tipo de acción y los datos que recibe
     dispatch({ type: DELETE_TODO, payload: res.data });
