@@ -24,7 +24,8 @@ const addTodo = async (request, response) => {
 const getAllTodos = async (request, response) => {
   try {
     // Se obtienen los datos con el método find donde se indica que solo muestre las tareas cuya propiedad visible sea true
-    const todos = await Todo.find({ visible: true });
+    // const todos = await Todo.find({ visible: true });
+    return response.send('Aqui van las tareas')
 
     // Retorna el estado 200 si la petición se creo de manera correcta
     return response.status(200).json(todos);
