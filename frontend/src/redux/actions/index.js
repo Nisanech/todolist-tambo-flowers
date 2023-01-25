@@ -13,7 +13,7 @@ import {
 
 // URL desde donde se hará el consumo de la API
 //const API_URL = "http://localhost:5000/api"; // local
-const API_URL = "https://todolist-tambo-flowers-back.vercel.app/api";
+const API_URL = "https://todolist-tambo-flowers-back.vercel.app/";
 
 // Función para agregar una nueva tarea
 //? Párametros: data -> Información de la tarea / dispatch -> Para disparar la acción desde el componente

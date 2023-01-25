@@ -26,7 +26,7 @@ app.use(cors());
 connectDB();
 
 // Routes for the requests
-app.use("/api", todoRoute);
+app.use("/", todoRoute);
 
 app.get('/', (req, res) => {
   return res.status(200).send('Hola')
