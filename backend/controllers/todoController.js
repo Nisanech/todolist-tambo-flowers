@@ -1,12 +1,13 @@
-// Se importa el documento donde se almacena el modelo 
+// Se importa el modelo. 
 const Todo = require("../models/todoModel");
 
-// Create task
-const addTodo = async (request, response) => {
+// Funcion para agregar tareas. 
+const addTodo = async (request, response) => { //Parametros de requisito y respuesta
+  //Try and catch para hacer el proceso y capturar errores
   try {
-    // Propiedad donde se guarda la información o nombre de la tarea
-    const newTodo = await Todo.create({
-      data: request.body.data,
+    //Metodo para crear una propiedad dentro de la BD.
+    const newTodo = await Todo.create({ 
+      data: request.body.data,// Propiedad donde se guarda la información o nombre de la tarea
     });
 
     // Método para guardar la información en la base de datos
@@ -20,7 +21,7 @@ const addTodo = async (request, response) => {
   }
 };
 
-// Get all tasks
+// Traer todas las tareas
 const getAllTodos = async (request, response) => {
   try {
     // Se obtienen los datos con el método find donde se indica que solo muestre las tareas cuya propiedad visible sea true
@@ -30,11 +31,11 @@ const getAllTodos = async (request, response) => {
     return response.status(200).json(todos);
   } catch (error) {
     // Retorna el estado 500 si hay un error en el envío de la petición
-    return response.status(500).send("Erroooooooooor");
+    return response.status(500).send("Error");
   }
 };
 
-// Completed task
+// tarea completada
 const toggleTodoDone = async (request, response) => {
   try {
     // Se ejecuta el método findById para buscar la tarea por el id seleccionado
@@ -46,7 +47,7 @@ const toggleTodoDone = async (request, response) => {
       { done: !todoRef.done }
     );
 
-    // Método para guardar la información en la base de datos
+    // Método para guardar la información en la base de datos en el campo de id especificado
     await todo.save();
 
     // Retorna el estado 200 si la petición se creo de manera correcta
@@ -57,7 +58,7 @@ const toggleTodoDone = async (request, response) => {
   }
 };
 
-// Edit task
+// Editar tarea
 const updateTodo = async (request, response) => {
   try {
     // Se actualiza la tarea con el método findOneAndUpdate y se cambia la propiedad data con la nueva información.

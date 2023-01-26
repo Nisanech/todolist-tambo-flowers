@@ -16,11 +16,8 @@ import {
 const API_URL = "https://todolist-tambo-flowers.vercel.app/api";
 
 // Función para agregar una nueva tarea
-//? Párametros: data -> Información de la tarea / dispatch -> Para disparar la acción desde el componente
 export const addNewTodo = (data) => async (dispatch) => {
-  try {
-    
-
+  try {   
     // Acceso a la ruta de la API que ejecuta la función de una nueva tarea desde el controlador, junto con el valor del data
     const res = await axios.post(`${API_URL}/todo/new`, { data });
 
@@ -41,11 +38,9 @@ export const getAllTodos = () => async (dispatch) => {
         'Access-Control-Allow-Origin': 'https://todolist-tambo-flowers-back.vercel.app'
       }
     })
-
     const json = await res.json()
     dispatch({ type: GETALL_TODO, payload: json });
     // Se referencia el tipo de acción y los datos que recibe
-    // dispatch({ type: GETALL_TODO, payload: res.data });
   } catch (error) {
     // Se captura el error en caso de que no se puedan obtener las tareas
     console.log("Error al cargar las tareas", error.message);

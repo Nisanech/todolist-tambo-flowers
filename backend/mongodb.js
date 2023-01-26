@@ -1,15 +1,15 @@
-//Conexión de la BD 
+//Conexión de la BD con node js 
 const mongoose = require("mongoose");
 
-// Importar dotenv para las variables de la conexión de la base de datos
+// Importar dotenv libreria para manejar las variables de entorno cuando se conecta con nopde js
 const dotenv = require("dotenv");
 
-// Método para configurar las variables conexión a la base de datos
+// Método .config() para acceder al objeto process (variable global con inforacion y utilidades de los procesos ejecutados en node)
 dotenv.config();
 
 // Connecto to database
 const connectDB = () => {
-  // Método de conexión para la base de datos
+  // Método .connect de conexión para la base de datos
   mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -31,4 +31,4 @@ const connectDB = () => {
   });
 };
 
-module.exports = connectDB; //Se exporta la constante. 
+module.exports = connectDB; //Se exporta la constante de conexión a la DB. 
