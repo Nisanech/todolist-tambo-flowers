@@ -40,12 +40,12 @@ app.get('/', (req, res) => {
   let kk;
   
   mongoose.connect(MONGODB_URI).then(() => {
+    return res.status(200).send('Conexión')
     kk = 'Conexión db'
   }).catch(error => {
-    kk = 'Error'
+    return res.status(400).send('Error del catch')
   });
 
-  return res.status(200).send(kk)
 })
 
 // Server port
