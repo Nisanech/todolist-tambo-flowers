@@ -67,3 +67,11 @@
     margin-top: 0.6rem;
 }
 }
+
+/* QUERY TABLET */
+@media (min-width: 766px) {
+
+  .todo-row {
+    width: 95%;
+  }
+}
