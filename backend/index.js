@@ -31,24 +31,6 @@ connectDB();
 // Routes for the requests
 app.use("/api", todoRoute);
 
-app.get('/', (req, res) => {
-  const USERNAME = process.env.DB_USERNAME;
-  const PASSWORD = process.env.DB_PASSWORD;
-  // const MONGODB_URI = `mongodb+srv://nisanech:Ape0rock@todolist.czru9rw.mongodb.net/test?retryWrites=true&w=majority`;
-
-  // Método de conexión para la base de datos
-  let kk;
-  // return res.status(200).send(process.env.MONGODB_URI)
-
-  mongoose.connect(process.env.MONGODB_URI).then(() => {
-    return res.status(200).send('Conexión')
-    kk = 'Conexión db'
-  }).catch(error => {
-    return res.status(400).send('Error del catch')
-  });
-
-})
-
 // Server port
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
