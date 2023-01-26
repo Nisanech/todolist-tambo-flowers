@@ -37,11 +37,15 @@ app.get('/', (req, res) => {
   const MONGODB_URI = `mongodb+srv://${USERNAME}:${PASSWORD}@todolist.czru9rw.mongodb.net/?retryWrites=true&w=majority`;
 
   // Método de conexión para la base de datos
+  let kk;
+  
   mongoose.connect(MONGODB_URI).then(() => {
-    return res.status(200).send('Conexión db')
+    kk = 'Conexión db'
   }).catch(error => {
-    return res.status(400).send('Error del catch')
+    kk = 'Error'
   });
+
+  return res.status(200).send(kk)
 })
 
 // Server port
