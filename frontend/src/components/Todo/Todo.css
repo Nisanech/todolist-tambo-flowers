@@ -55,6 +55,7 @@
   .todo-input.edit {
     border: 2px solid #000000;
     width: 90%;
+    padding: 1rem 0.5rem;
 }
   .icons {
     display: flex;
