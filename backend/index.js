@@ -29,17 +29,17 @@ app.use(cors());
 connectDB();
 
 // Routes for the requests
-app.use("/", todoRoute);
+app.use("/api", todoRoute);
 
 app.get('/', (req, res) => {
   const USERNAME = process.env.DB_USERNAME;
   const PASSWORD = process.env.DB_PASSWORD;
-  const MONGODB_URI = `mongodb+srv://nisanech:Ape0rock@todolist.czru9rw.mongodb.net/test?retryWrites=true&w=majority`;
+  // const MONGODB_URI = `mongodb+srv://nisanech:Ape0rock@todolist.czru9rw.mongodb.net/test?retryWrites=true&w=majority`;
 
   // Método de conexión para la base de datos
   let kk;
   
-  mongoose.connect(MONGODB_URI).then(() => {
+  mongoose.connect(process.env.MONGODB_URI).then(() => {
     return res.status(200).send('Conexión')
     kk = 'Conexión db'
   }).catch(error => {
