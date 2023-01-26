@@ -34,7 +34,7 @@ app.use("/", todoRoute);
 app.get('/', (req, res) => {
   const USERNAME = process.env.DB_USERNAME;
   const PASSWORD = process.env.DB_PASSWORD;
-  const MONGODB_URI = `mongodb+srv://${USERNAME}:${PASSWORD}@todolist.czru9rw.mongodb.net/test?retryWrites=true&w=majority`;
+  const MONGODB_URI = `mongodb+srv://nisanech:Ape0rock@todolist.czru9rw.mongodb.net/test?retryWrites=true&w=majority`;
 
   // Método de conexión para la base de datos
   let kk;

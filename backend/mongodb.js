@@ -14,7 +14,7 @@ const PASSWORD = process.env.DB_PASSWORD;
 // Connecto to database
 const connectDB = () => {
   // URL de la base de datos creada en MongoDB Atlas, esta URL se genera directamente en dicha plataforma.
-  const MONGODB_URI = `mongodb+srv://${USERNAME}:${PASSWORD}@todolist.czru9rw.mongodb.net/?retryWrites=true&w=majority`;
+  const MONGODB_URI = `mongodb+srv://nisanech:Ape0rock@todolist.czru9rw.mongodb.net/test?retryWrites=true&w=majority`;
 
   // Método de conexión para la base de datos
   mongoose.connect(MONGODB_URI, {
@@ -22,7 +22,7 @@ const connectDB = () => {
     useUnifiedTopology: true,
   });
 
-  
+
 
   // Las siguientes funciones permiten determinar el estado de la base de datos: conectada, desconectada o error en la conexión
   mongoose.connection.on("connected", () => {
