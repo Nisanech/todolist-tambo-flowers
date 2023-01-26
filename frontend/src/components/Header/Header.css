@@ -1,38 +1,34 @@
-header{
-        background-color: #DEA5A5;
-        display: flex;
-        justify-content: space-between;
+header {
+  background-color: #dea5a5;
+  display: flex;
+  justify-content: space-between;
 }
 
-header img{
-    height: 20rem;
+header img {
+  height: 20rem;
 }
-header img.flor-izq{
-    transform: scaleX(-1)
+
+header img.flor-izq {
+  transform: scaleX(-1);
 }
 
 /* QUERY CELULAR */
-@media (max-width:481px){   
-header img{
+@media (max-width: 481px) {
+  header img {
     height: 4rem;
-}
+  }
 }
 
-
-/* QUERY TABLET*/
-@media (min-width:766px){
-   
-header img{
+/* QUERY TABLET */
+@media (min-width: 766px) {
+  header img {
     height: 8rem;
-}
+  }
 }
 
-
-/* QUERY DESKTOP*/
-@media (min-width:1024px){
-   
-header img{
+/* QUERY DESKTOP */
+@media (min-width: 1024px) {
+  header img {
     height: 10rem;
-}
-
+  }
 }

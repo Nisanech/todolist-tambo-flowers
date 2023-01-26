@@ -1,59 +1,108 @@
 // Import model
 const Todo = require("../models/todoModel");
 
-// req = require & res = response
+// Create task
+const addTodo = async (request, response) => {
+  try {
+    // Propiedad donde se guarda la información o nombre de la tarea
+    const newTodo = await Todo.create({
+      data: request.body.data,
+    });
+
+    // Método para guardar la información en la base de datos
+    await newTodo.save();
+
+    // Retorna el estado 200 si la petición se creo de manera correcta
+    return response.status(200).json(newTodo);
+  } catch (error) {
+    // Retorna el estado 500 si hay un error en el envío de la petición
+    return response.status(500).json(error.message);
+  }
+};
 
 // Get all tasks
-const getTodos = async (req, res) => {
-  const todos = await Todo.find();
+const getAllTodos = async (request, response) => {
+  try {
+    // Se obtienen los datos con el método find donde se indica que solo muestre las tareas cuya propiedad visible sea true
+    const todos = await Todo.find({ visible: true });
 
-  res.json(todos);
-};
-
-// Create task
-const createTodo = (req, res) => {
-  const todo = new Todo({
-    title: req.body.title,
-  });
-
-  todo.save();
-
-  res.json(todo);
-};
-
-// Edit task
-const editTodo = async (req, res) => {
-  const todo = await Todo.findByIdAndUpdate(req.params.id, req.body);
-
-  todo.save();
-
-  res.json(todo);
+    // Retorna el estado 200 si la petición se creo de manera correcta
+    return response.status(200).json(todos);
+  } catch (error) {
+    // Retorna el estado 500 si hay un error en el envío de la petición
+    return response.status(500).send("Erroooooooooor");
+  }
 };
 
 // Completed task
-const toggleTodoStatus = async (req, res) => {
-  const todo = await Todo.findById(req.params.id);
+const toggleTodoDone = async (request, response) => {
+  try {
+    // Se ejecuta el método findById para buscar la tarea por el id seleccionado
+    const todoRef = await Todo.findById(request.params.id);
 
-  todo.completed = !todo.completed;
+    // Al retornar un id único se actualiza esa tarea con el método findOneAndUpdate y se cambia la propiedad done a true para indicar que la tarea esta completa.
+    const todo = await Todo.findOneAndUpdate(
+      { _id: request.params.id },
+      { done: !todoRef.done }
+    );
 
-  todo.save();
+    // Método para guardar la información en la base de datos
+    await todo.save();
 
-  res.json(todo);
+    // Retorna el estado 200 si la petición se creo de manera correcta
+    return response.status(200).json(todo);
+  } catch (error) {
+    // Retorna el estado 500 si hay un error en el envío de la petición
+    return response.status(500).json(error.message);
+  }
+};
+
+// Edit task
+const updateTodo = async (request, response) => {
+  try {
+    // Se actualiza la tarea con el método findOneAndUpdate y se cambia la propiedad data con la nueva información.
+    await Todo.findOneAndUpdate(
+      { _id: request.params.id },
+      { data: request.body.data }
+    );
+
+    // Se ejecuta el método findById para buscar la tarea por el id seleccionado
+    const todo = await Todo.findById(request.params.id);
+
+    // Retorna el estado 200 si la petición se creo de manera correcta
+    return response.status(200).json(todo);
+  } catch (error) {
+    // Retorna el estado 500 si hay un error en el envío de la petición
+    return response.status(500).json(error.message);
+  }
 };
 
 // Delete task
-const toggleTodoDelete = async (req, res) => {
-  const todo = await Todo.findById(req.params.id);
+const deleteTodo = async (request, response) => {
+  try {
+    // Se ejecuta el método findById para buscar la tarea por el id seleccionado
+    const todoRef = await Todo.findById(request.params.id);
 
-  todo.visible = !todo.visible;
+    // Al retornar un id único se actualiza esa tarea con el método findOneAndUpdate y se cambia la propiedad visible a false para indicar que la tarea fue eliminada.
+    const todo = await Todo.findOneAndUpdate(
+      { _id: request.params.id },
+      { visible: !todoRef.visible }
+    );
 
-  todo.save();
+    // Método para guardar la información en la base de datos
+    await todo.save();
 
-  res.json(todo);
+    // Retorna el estado 200 si la petición se creo de manera correcta
+    return response.status(200).json(todo);
+  } catch (error) {
+    // Retorna el estado 500 si hay un error en el envío de la petición
+    return response.status(500).json(error.message);
+  }
 };
 
-exports.getTodos = getTodos;
-exports.createTodo = createTodo;
-exports.editTodo = editTodo;
-exports.toggleTodoStatus = toggleTodoStatus;
-exports.toggleTodoDelete = toggleTodoDelete;
+// Se exportan todas las funciones del controlador, que hacen parte del CRUD
+exports.getAllTodos = getAllTodos;
+exports.addTodo = addTodo;
+exports.updateTodo = updateTodo;
+exports.toggleTodoDone = toggleTodoDone;
+exports.deleteTodo = deleteTodo;

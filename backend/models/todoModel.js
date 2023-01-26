@@ -1,25 +1,27 @@
-//Permite trabajar con la base de datos
-const mongoose= require('mongoose');
+// Allows you to work with the database
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-const Schema= mongoose.Schema
+// Structure of the collection in the database
+const TodoSchema = new Schema({
+  // Información o nombre de la tarea
+  data: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  // Indica si la tarea fue completada o no
+  done: {
+    type: Boolean,
+    default: false,
+  },
+  // Indica si la tarea fue eliminada o no
+  visible: {
+    type: Boolean,
+    default: true,
+  },
+});
 
-//Estructura de la colección en la base de datos
-const TodoSchema= new Schema({
-    title:{
-        type:String,
-        required:true,
-        trim:true
-    },
-    completed:{
-        type:Boolean,
-        default:false,
-    },
-    visible:{
-        type:Boolean,
-        default:true,
-    }
-})
+const Todo = mongoose.model("Todo", TodoSchema);
 
-const Todo = mongoose.model('Todo',TodoSchema)
-
-module.exports = Todo
+module.exports = Todo;
