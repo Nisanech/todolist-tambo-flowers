@@ -22,6 +22,8 @@ const connectDB = () => {
     useUnifiedTopology: true,
   });
 
+  
+
   // Las siguientes funciones permiten determinar el estado de la base de datos: conectada, desconectada o error en la conexión
   mongoose.connection.on("connected", () => {
     console.log("Base de datos conectada");

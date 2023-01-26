@@ -1,5 +1,8 @@
 // Express js
 const express = require("express");
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+dotenv.config();
 
 // Allows making HTTP requests
 const cors = require("cors");
@@ -29,7 +32,16 @@ connectDB();
 app.use("/", todoRoute);
 
 app.get('/', (req, res) => {
-  return res.status(200).send('Hola')
+  const USERNAME = process.env.DB_USERNAME;
+  const PASSWORD = process.env.DB_PASSWORD;
+  const MONGODB_URI = `mongodb+srv://${USERNAME}:${PASSWORD}@todolist.czru9rw.mongodb.net/?retryWrites=true&w=majority`;
+
+  // Método de conexión para la base de datos
+  mongoose.connect(MONGODB_URI).then(() => {
+    return res.status(200).send('Conexión db')
+  }).catch(error => {
+    return res.status(400).send('Error del catch')
+  });
 })
 
 // Server port
