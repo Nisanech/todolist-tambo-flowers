@@ -58,11 +58,7 @@ function TodoList() {
             <h1> Lista de tareas</h1>
             <div> 
                 <input className='search' type="text" placeholder='Buscar tarea'/>
-                <BsSearch npm install sweetalert2
-
-                    /* onClick={() => removeTodo(todo.id)}
-                    className='delete-icon' */
-/>
+                <BsSearch />
                 <button onClick={()=>popUp()}>
                 <h2 > VER HISTORIAL DE TAREAS </h2>
                 </button>
