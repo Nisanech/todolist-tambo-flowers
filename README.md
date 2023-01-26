@@ -34,7 +34,7 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
 1. Clonar el repositorio
 
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git](https://github.com/Nisanech/todolist-tambo-flowers.git
+   git clone https://github.com/Nisanech/todolist-tambo-flowers.git
    ```
    
 2. Ingresar a la carpeta `backend` y `fronted`
