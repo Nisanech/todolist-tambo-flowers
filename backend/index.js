@@ -38,7 +38,8 @@ app.get('/', (req, res) => {
 
   // Método de conexión para la base de datos
   let kk;
-  return res.status(200).send(process.env.MONGODB_URI)
+  // return res.status(200).send(process.env.MONGODB_URI)
+
   mongoose.connect(process.env.MONGODB_URI).then(() => {
     return res.status(200).send('Conexión')
     kk = 'Conexión db'
