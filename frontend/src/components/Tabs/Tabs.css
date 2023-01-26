@@ -1,0 +1,26 @@
+.tabs {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.tab-button,
+.tab-selected {
+  padding: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  color: #000;
+  text-transform: capitalize;
+  font-family: "Montserrat", sans-serif;
+}
+
+.tab-button {
+  background-color: #f9c9c9;
+}
+
+.tab-selected {
+  background-color: #e59d9d;
+}

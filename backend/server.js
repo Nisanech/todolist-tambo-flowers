@@ -1,22 +1,30 @@
-//Almacena libreria express en una variable de direccionamiento. 
-const express = require("express"); //framework de trabajo 
+// Express js
+const express = require("express");
+
+// Allows making HTTP requests
+const cors = require("cors");
+
+// Database connection
+const connectDB = require("./mongodb")
+
+// Routes
+const todoRoute = require("./routes/todoRoutes")
+
+// Express application
 const app = express();
 
-const cors = require("cors"); //peticiones http 
-
-const connectDB = require("./mongodb"); //importa conexion de la bd 
-
-const todoRoute = require("./routes/todoRoutes"); //Rutas 
-
-app.use(express.json()); //respuesta de express se convierte a json 
+// Use express
+app.use(express.json());
 
 // Use Cors
 app.use(cors());
 
 connectDB();
 
+// Routes for the requests
 app.use("/api", todoRoute); 
 
-app.listen(5000, () => {//verificar que el puerto este activado 
+// Server port
+app.listen(5000, () => {
   console.log("Server is running on port 5000");
 });

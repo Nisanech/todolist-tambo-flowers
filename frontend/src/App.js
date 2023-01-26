@@ -1,19 +1,22 @@
+// Import dependencies
+import React from "react";
 
-import './App.css';
-import Footer from './components/Footer/Footer';
-import Header from './components/Header/Header';
-import TodoList from './compone/TodoList';
+// Import components
+import Header from "./components/Header/Header";
+import TodoForm from './components/TodoForm/TodoForm'
+import Todos from './components/Todos/Todos'
+import Footer from "./components/Footer/Footer";
+
+// Import styles
+import "./App.css";
 
 function App() {
-  const DATA = [
-   
-  ];
   return (
     <>
-    <Header/>
-    <TodoList />
-    <Footer/>
-
+      <Header />
+      <TodoForm/>
+      <Todos/>
+      <Footer />
     </>
   );
 }
